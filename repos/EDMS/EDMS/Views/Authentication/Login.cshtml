@@ -1,0 +1,40 @@
+﻿@*@{
+        ViewData["Title"] = "Login";
+    }
+
+*@
+
+@model EDMS.Models.UserAuthenticateRequest
+@{
+    ViewBag.Title = "Logg inn";
+}
+    <script>
+    $(document).ready(function () {
+
+       
+        $('main').css('width', '25%')
+
+             
+    })
+    </script>
+    <div width="25%">
+        @using (Html.BeginForm("Login", "Authentication", FormMethod.Post, new { @class = "form-signin" }))
+        {
+            <text>
+
+                @Html.LabelFor(m => m.UserKey, new { @class = "sr-only" }) @Html.EditorFor(m => m.UserKey, new { htmlAttributes = new { @class = "form-control", placeholder = "username", autofocus = "autofocus" } })
+                @Html.ValidationMessageFor(m => m.UserKey, "", new { @class = "bg-danger validationMessage" })
+
+                @Html.LabelFor(m => m.Password, new { @class = "sr-only" }) @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "password", type = "password" } })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "bg-danger validationMessage" })
+                <br />
+
+                @Html.ValidationSummary(true)
+            </text>
+            <div class="form-check">
+                <button class="btn btn-info" type="reset">Reset</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        }
+    </div>
+

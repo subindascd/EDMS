@@ -1,0 +1,12 @@
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\bin\Debug\netcoreapp3.1\AuthenticationService.Service.deps.json
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\bin\Debug\netcoreapp3.1\AuthenticationService.Service.dll
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\bin\Debug\netcoreapp3.1\AuthenticationService.Service.pdb
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\bin\Debug\netcoreapp3.1\AuthenticationService.Data.dll
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\bin\Debug\netcoreapp3.1\AuthenticationService.Data.pdb
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\obj\Debug\netcoreapp3.1\AuthenticationService.Service.csprojAssemblyReference.cache
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\obj\Debug\netcoreapp3.1\AuthenticationService.Service.AssemblyInfoInputs.cache
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\obj\Debug\netcoreapp3.1\AuthenticationService.Service.AssemblyInfo.cs
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\obj\Debug\netcoreapp3.1\AuthenticationService.Service.csproj.CopyComplete
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\obj\Debug\netcoreapp3.1\AuthenticationService.Service.dll
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\obj\Debug\netcoreapp3.1\AuthenticationService.Service.pdb
+C:\Users\dotnetcloudmc132\source\repos\service\AuthenticationService\AuthenticationService.Service\obj\Debug\netcoreapp3.1\AuthenticationService.Service.csproj.CoreCompileInputs.cache

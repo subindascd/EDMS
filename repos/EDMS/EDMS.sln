@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDMS", "EDMS\EDMS.csproj", "{3CD7733A-9533-4D45-A5B1-4900C33F6978}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDMS.Test", "EDMS.Test\EDMS.Test.csproj", "{799650AC-540D-4D99-B123-9A457C5AF774}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CD7733A-9533-4D45-A5B1-4900C33F6978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD7733A-9533-4D45-A5B1-4900C33F6978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD7733A-9533-4D45-A5B1-4900C33F6978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD7733A-9533-4D45-A5B1-4900C33F6978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{799650AC-540D-4D99-B123-9A457C5AF774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{799650AC-540D-4D99-B123-9A457C5AF774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{799650AC-540D-4D99-B123-9A457C5AF774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{799650AC-540D-4D99-B123-9A457C5AF774}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {397AF9B7-132C-446B-A602-C4D66350F43A}
+	EndGlobalSection
+EndGlobal

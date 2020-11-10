@@ -1,0 +1,158 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model EDMS.Models.User
+
+<script>
+    var userid =@Model.userID;
+    var isadmin = 'true'
+    var leaveday;
+    var leaveUserid;
+    $(document).ready(function () {
+
+       // onLoad();
+        $('main').css('width', '25%')
+
+        $('#ddlMonth').val('@ViewBag.Month')
+        CallController()
+        $('#btnDownload').click(function () {
+
+            $('#mdApplyLeave').modal('show')
+        })
+    })
+    function onLoad() {
+        $.get("https://localhost:44335/Auth/dashboard/" + userid + "/" +isadmin, function (data) {
+
+        });
+    }
+    function CallController() {
+        var monthName=$('#ddlMonth').val()
+        $.get("/Dashboard/DashboardDetails", { currentMonth: monthName }, function (data) {
+            if (data == "404")
+                location.href = "https://localhost:44379/Authentication/Login";
+            else {
+                var head = data.split('|');
+                $('thead').append(head[1])
+                $('#tblBody').append(head[0]);
+            }
+        });
+    }
+    function ShowModal(_userid, date) {
+
+        leaveday = date;
+        leaveUserid=_userid
+        $('#leavedate').empty();
+        var month=$('#ddlMonth').val()
+        $('#leavedate').append("Leave Date:"+month+" "+date);
+        $('#mdApplyLeave').modal('show')
+
+    }
+    function Downlaod() {
+        $.get("/Dashboard/Download", null, function (data) {
+            debugger;
+        });
+    }
+    function MonthChange() {
+        var monthName = $('#ddlMonth').val()
+        $('#tblBody').empty();
+        $('thead').empty();
+
+
+        $.get("/Dashboard/DashboardDetails", { currentMonth: monthName }, function (data) {
+            debugger;
+            if (data == "404")
+                $.get("/Login/Authentication", "", function (data) { })
+            else {
+                var head = data.split('|');
+                $('thead').append(head[1])
+                $('#tblBody').append(head[0]);
+            }
+        });
+    }
+    function ApplyLeave() {
+        var year = '@DateTime.Today.Year.ToString()'
+        var mon = $("#ddlMonth")[0].selectedIndex;
+        var date = leaveday+"-"+mon+"-"+year
+        var ishalfday = $('#chkhalfday')[0].checked;
+        $.post("/Dashboard/ApplyLeave", { date: date, userid: leaveUserid, isHafday: ishalfday }, function (data) {
+            $('#mdApplyLeave').modal('hide')
+            location.reload();
+        });
+    }
+    function SendMail() {
+
+        var userid="";
+
+        $('table').find('tr').each(function (i, el) {
+            if (i > 0) {
+                var $tds = $(this).find('td')
+                var chk = $tds.eq(0).find('input[type = "checkbox"]')
+                if (chk[0].checked)
+                    //userid.push($tds.eq(2).text())
+                   userid = userid + "|" + $tds.eq(2).text()
+            }
+
+            // do something with productId, product, Quantity
+        });
+        $.get("/Dashboard/Sendmail", { userId:userid }, function (data) {
+
+            alert("Mail Sent Successfully")
+            location.reload();
+        });
+    }
+</script>
+<div width="25%">
+    @Html.DropDownList("ddlMonth",
+                        new SelectList(Enum.GetValues(typeof(Month))),
+                        "Select Month",
+                        new { @class = "form-control", @onchange = "MonthChange()" })
+</div>
+<br />
+<br />
+
+<div class="text-center">
+    <table border="1">
+        <thead style=" background-color: burlywood; ">
+
+        </thead>
+        <tbody id="tblBody"></tbody>
+    </table>
+</div>
+<br />
+<br />
+@if (Model.isAdmin)
+{
+    @*<button type="button" class="btn btn-lg btn-primary btn-block" onclick="location.href='<%:Url.Action(" Downlaod", "Dashboard" ) %>'">DownLoad</button>*@
+    <a href="@Url.Action("Download","Dashboard")"
+       class="btn btn-primary btn-block btn-lg">Download</a>
+    <button type="button" class="btn btn-lg btn-primary btn-block" onclick="SendMail();">Send Mail</button>
+
+}
+<div id="mdApplyLeave" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <p id="leavedate"></p>
+                <table>
+                    <tr>
+                        <td> <input type='checkbox' class='form-check' id="chkhalfday" name="leave" /></td>
+                        <td><label for="leave">Is Half Day</label></td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary btn-block" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-primary btn-block" onclick="ApplyLeave()">Apply Leave</button>
+            </div>
+        </div>
+
+    </div>
+</div>
